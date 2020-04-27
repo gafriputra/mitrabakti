@@ -14,8 +14,28 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.cp');
-});
+    return view('pages.cp.home');
+})
+    ->name('Home');
+Route::get('/about', function () {
+    return view('pages.cp.about');
+})
+    ->name('About');
+Route::get('/projects', function () {
+    return view('pages.cp.projects');
+})
+    ->name('Projects');
+Route::get('/blog', function () {
+    return view('pages.cp.blog');
+})
+    ->name('Blog');
+Route::get('/contact', function () {
+    return view('pages.cp.contact');
+})
+    ->name('Contact');
+Route::get('blog/{slug}', function ($slug) {
+    return view('pages.cp.blog-detail');
+})->name('BlogDetail');
 
 Auth::routes();
 
