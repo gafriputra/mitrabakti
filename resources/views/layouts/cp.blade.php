@@ -8,24 +8,24 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/open-iconic-bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/open-iconic-bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/animate.css')}}">
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/owl.theme.default.min.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/magnific-popup.css')}}">
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/aos.css')}}">
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/ionicons.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/bootstrap-datepicker.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/jquery.timepicker.css"')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/jquery.timepicker.css')}}">
 
 
-    <link rel="stylesheet" href="{{asset('asset_cp/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/icomoon.css')}}">
-    <link rel="stylesheet" href="{{asset('asset_cp/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/icomoon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets_cp/css/style.css')}}">
   </head>
   <body>
     <div class="bg-top navbar-light">
@@ -85,7 +85,7 @@
     <!-- END nav -->
 
     <section class="home-slider owl-carousel">
-      <div class="slider-item" style="background-image:url(images/bg_1.jpg);" data-stellar-background-ratio="0.5">
+      <div class="slider-item" style="background-image:url({{asset('assets_cp/images/bg_1.jpg')}});" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -98,7 +98,7 @@
         </div>
       </div>
 
-      <div class="slider-item" style="background-image:url(images/bg_2.jpg);" data-stellar-background-ratio="0.5">
+      <div class="slider-item" style="background-image:url({{asset('assets_cp/images/bg_2.jpg')}});" data-stellar-background-ratio="0.5">
       	<div class="overlay"></div>
         <div class="container">
           <div class="row no-gutters slider-text align-items-center justify-content-end" data-scrollax-parent="true">
@@ -228,7 +228,7 @@
 		</section>
 
 
-		<section class="ftco-intro" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+		<section class="ftco-intro" style="background-image: url({{asset('assets_cp/images/bg_3.jpg')}});" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row justify-content-center">
@@ -254,7 +254,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/team-1.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{asset('assets_cp/images/team-1.jpg')}});"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Daren Wilson</h3>
@@ -274,7 +274,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/team-2.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{asset('assets_cp/images/team-2.jpg')}});"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Warren Parker</h3>
@@ -294,7 +294,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/team-3.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{asset('assets_cp/images/team-3.jpg')}});"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Eva Gustavo</h3>
@@ -314,7 +314,7 @@
 					<div class="col-md-6 col-lg-3 ftco-animate">
 						<div class="staff">
 							<div class="img-wrap d-flex align-items-stretch">
-								<div class="img align-self-stretch" style="background-image: url(images/team-4.jpg);"></div>
+								<div class="img align-self-stretch" style="background-image: url({{asset('assets_cp/images/team-4.jpg')}});"></div>
 							</div>
 							<div class="text pt-3 text-center">
 								<h3>Mike Henderson</h3>
@@ -347,96 +347,96 @@
     		<div class="row no-gutters">
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-1.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-1.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-1.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-1.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-2.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-2.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-2.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-2.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-3.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-3.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-3.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-3.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-4.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-4.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-4.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-4.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-5.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-5.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-5.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-5.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-6.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-6.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Resedencial</span>
 	    					<h3><a href="project.html">Rose Villa House</a></h3>
 	    				</div>
-	    				<a href="images/work-6.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-6.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-7.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-7.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-7.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-7.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
     			</div>
     			<div class="col-md-6 col-lg-3 ftco-animate">
     				<div class="project">
-	    				<img src="images/work-8.jpg" class="img-fluid" alt="Colorlib Template">
+	    				<img src="{{asset('assets_cp/images/work-8.jpg')}}" class="img-fluid" alt="Colorlib Template">
 	    				<div class="text">
 	    					<span>Commercial</span>
 	    					<h3><a href="project.html">San Francisco Tower</a></h3>
 	    				</div>
-	    				<a href="images/work-8.jpg" class="icon image-popup d-flex justify-content-center align-items-center">
+	    				<a href="{{asset('assets_cp/images/work-8.jpg')}}" class="icon image-popup d-flex justify-content-center align-items-center">
 	    					<span class="icon-expand"></span>
 	    				</a>
     				</div>
@@ -444,7 +444,7 @@
     		</div>
     	</div>
 		</section>
-    <section class="ftco-counter img" id="section-counter" style="background-image: url(images/bg_3.jpg);" data-stellar-background-ratio="0.5">
+    <section class="ftco-counter img" id="section-counter" style="background-image: url({{asset('assets_cp/images/bg_3.jpg')}});" data-stellar-background-ratio="0.5">
     	<div class="container">
 				<div class="row">
           <div class="col-md-6 col-lg-3 d-flex justify-content-center counter-wrap ftco-animate">
@@ -547,7 +547,7 @@
                     <p class="name">Racky Henderson</p>
                     <span class="position">Farmer</span>
                   </div>
-                  <div class="user-img" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img" style="background-image: url({{asset('assets_cp/images/person_1.jpg')}})">
                   </div>
                 </div>
               </div>
@@ -561,7 +561,7 @@
                     <p class="name">Henry Dee</p>
                     <span class="position">Businessman</span>
                   </div>
-                  <div class="user-img" style="background-image: url(images/person_2.jpg)">
+                  <div class="user-img" style="background-image: url({{asset('assets_cp/images/person_2.jpg')}})">
                   </div>
                 </div>
               </div>
@@ -575,7 +575,7 @@
                     <p class="name">Mark Huff</p>
                     <span class="position">Students</span>
                   </div>
-                  <div class="user-img" style="background-image: url(images/person_3.jpg)">
+                  <div class="user-img" style="background-image: url({{asset('assets_cp/images/person_3.jpg')}})">
                   </div>
                 </div>
               </div>
@@ -589,7 +589,7 @@
                     <p class="name">Rodel Golez</p>
                     <span class="position">Striper</span>
                   </div>
-                  <div class="user-img" style="background-image: url(images/person_4.jpg)">
+                  <div class="user-img" style="background-image: url({{asset('assets_cp/images/person_4.jpg')}})">
                   </div>
                 </div>
               </div>
@@ -603,7 +603,7 @@
                     <p class="name">Ken Bosh</p>
                     <span class="position">Manager</span>
                   </div>
-                  <div class="user-img" style="background-image: url(images/person_1.jpg)">
+                  <div class="user-img" style="background-image: url({{asset('assets_cp/images/person_1.jpg')}})">
                   </div>
                 </div>
               </div>
@@ -626,7 +626,7 @@
 				<div class="row">
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_1.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('assets_cp/images/image_1.jpg')}});">
 								<div class="meta-date text-center p-2">
                   <span class="day">07</span>
                   <span class="mos">February</span>
@@ -648,7 +648,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_2.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('assets_cp/images/image_2.jpg')}});">
 								<div class="meta-date text-center p-2">
                   <span class="day">07</span>
                   <span class="mos">February</span>
@@ -670,7 +670,7 @@
           </div>
           <div class="col-md-4 ftco-animate">
             <div class="blog-entry">
-              <a href="blog-single.html" class="block-20" style="background-image: url('images/image_3.jpg');">
+              <a href="blog-single.html" class="block-20" style="background-image: url({{asset('assets_cp/images/image_3.jpg')}});">
 								<div class="meta-date text-center p-2">
                   <span class="day">07</span>
                   <span class="mos">February</span>
@@ -726,7 +726,7 @@
             <div class="ftco-footer-widget mb-5">
               <h2 class="ftco-heading-2">Recent Blog</h2>
               <div class="block-21 mb-4 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_1.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url({{asset('assets_cp/images/image_1.jpg')}});"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -737,7 +737,7 @@
                 </div>
               </div>
               <div class="block-21 mb-5 d-flex">
-                <a class="blog-img mr-4" style="background-image: url(images/image_2.jpg);"></a>
+                <a class="blog-img mr-4" style="background-image: url({{asset('assets_cp/images/image_2.jpg')}});"></a>
                 <div class="text">
                   <h3 class="heading"><a href="#">Even the all-powerful Pointing has no control about</a></h3>
                   <div class="meta">
@@ -778,23 +778,23 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="{{asset('asset_cp/js/jquery.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery-migrate-3.0.1.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/popper.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/bootstrap.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.easing.1.3.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.waypoints.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.stellar.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.magnific-popup.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/aos.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.animateNumber.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/bootstrap-datepicker.js')}}"></script>
-  <script src="{{asset('asset_cp/js/jquery.timepicker.min.js')}}"></script>
-  <script src="{{asset('asset_cp/js/scrollax.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/popper.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/bootstrap.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.waypoints.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.stellar.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/owl.carousel.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/aos.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.animateNumber.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/bootstrap-datepicker.js')}}"></script>
+  <script src="{{asset('assets_cp/js/jquery.timepicker.min.js')}}"></script>
+  <script src="{{asset('assets_cp/js/scrollax.min.js')}}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="{{asset('asset_cp/js/google-map.js')}}"></script>
-  <script src="{{asset('asset_cp/js/main.js')}}"></script>
+  <script src="{{asset('assets_cp/js/google-map.js')}}"></script>
+  <script src="{{asset('assets_cp/js/main.js')}}"></script>
 
   </body>
 </html>
