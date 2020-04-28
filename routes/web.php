@@ -38,7 +38,7 @@ Route::get('blog/{slug}', function ($slug) {
 })->name('BlogDetail');
 
 Route::get('/admin', function () {
-    return view('layouts.admin');
+    return view('pages.admin.dashboard');
 });
 Auth::routes();
 
