@@ -40,6 +40,21 @@ Route::get('blog/{slug}', function ($slug) {
 Route::get('/admin', function () {
     return view('pages.admin.dashboard');
 });
-Auth::routes();
+Route::get('/admin/kategori', function () {
+    return view('pages.admin.product.kategori');
+});
+Route::get('/admin/addkategori', function () {
+    return view('pages.admin.product.form-kategori');
+});
+Route::get('/login', function () {
+    return view('pages.admin.login');
+});
+Route::get('/register', function () {
+    return view('pages.admin.register');
+});
+Route::get('/forgot', function () {
+    return view('pages.admin.forgot');
+});
+// Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

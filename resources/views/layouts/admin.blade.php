@@ -20,7 +20,9 @@
     =========================================================
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
-<link href="{{asset('main.css')}}" rel="stylesheet"></head>
+{{-- <link href="{{asset('main.css')}}" rel="stylesheet"></head> --}}
+<link href="{{asset('main-login.css')}}" rel="stylesheet">
+
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         @include('includes.admin.header')
@@ -36,5 +38,7 @@
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
-<script type="text/javascript" src="{{asset('assets_admin/scripts/main.js')}}"></script></body>
+{{-- <script type="text/javascript" src="{{asset('assets_admin/scripts/main.js')}}"></script> --}}
+<script type="text/javascript" src="{{asset('assets_admin/scripts/main-login.js')}}"></script>
+</body>
 </html>

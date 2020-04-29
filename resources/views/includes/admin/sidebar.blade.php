@@ -35,10 +35,16 @@
                 <li>
                     <a href="index.html" class="mm-active">
                         <i class="metismenu-icon pe-7s-rocket"></i>
-                        Dashboard Example 1
+                        Dashboard
                     </a>
                 </li>
-                <li class="app-sidebar__heading">UI Components</li>
+                <li class="app-sidebar__heading">Product</li>
+                <li  >
+                    <a href="tables-regular.html">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Kategori
+                    </a>
+                </li>
                 <li
 
 
