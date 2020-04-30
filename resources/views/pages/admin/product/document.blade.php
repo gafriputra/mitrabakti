@@ -19,8 +19,8 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('produk')}}" class="btn btn-outline-warning"> <i class="pe-7s-angle-left-circle"></i> Kembali</a>
-                <a href="{{route('form-produk')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Foto Produk</a>
+                <a href="{{route('product')}}" class="btn btn-outline-warning"> <i class="pe-7s-angle-left-circle"></i> Kembali</a>
+                <a href="{{route('form-product')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Foto Produk</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">

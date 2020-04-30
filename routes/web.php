@@ -43,48 +43,40 @@ Route::get('/admin', function () {
 
 
 
-Route::get('/admin/kategori', function () {
-    return view('pages.admin.product.kategori');
-})->name('kategori');
-Route::get('/admin/form-kategori', function () {
-    return view('pages.admin.product.form-kategori');
-})->name('form-kategori');
+Route::get('/admin/category', function () {
+    return view('pages.admin.product.category');
+})->name('category');
+Route::get('/admin/form-category', function () {
+    return view('pages.admin.product.form-category');
+})->name('form-category');
 
 
 
-Route::get('/admin/produk', function () {
-    return view('pages.admin.product.produk');
-})->name('produk');
-Route::get('/admin/form-produk', function () {
-    return view('pages.admin.product.form-produk');
-})->name('form-produk');
+Route::get('/admin/product', function () {
+    return view('pages.admin.product.product');
+})->name('product');
+Route::get('/admin/form-product', function () {
+    return view('pages.admin.product.form-product');
+})->name('form-product');
 
-Route::get('/admin/galeri', function () {
-    return view('pages.admin.product.galeri');
-})->name('galeri');
-Route::get('/admin/form-galeri', function () {
-    return view('pages.admin.product.form-galeri');
-})->name('form-galeri');
-
-
-Route::get('/admin/dokumen', function () {
-    return view('pages.admin.product.dokumen');
-})->name('dokumen');
-Route::get('/admin/form-dokumen', function () {
-    return view('pages.admin.product.form-dokumen');
-})->name('form-dokumen');
+Route::get('/admin/gallery', function () {
+    return view('pages.admin.product.gallery');
+})->name('gallery');
+Route::get('/admin/form-gallery', function () {
+    return view('pages.admin.product.form-gallery');
+})->name('form-gallery');
 
 
+Route::get('/admin/document', function () {
+    return view('pages.admin.product.document');
+})->name('document');
+Route::get('/admin/form-document', function () {
+    return view('pages.admin.product.form-document');
+})->name('form-document');
 
-Route::get('/login', function () {
-    return view('pages.admin.login');
-})->name('login');
-Route::get('/register', function () {
-    return view('pages.admin.register');
-})->name('register');
-Route::get('/forgot', function () {
-    return view('pages.admin.forgot');
-})->name('forgot');
-// Auth::routes();
+
+
+
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

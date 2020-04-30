@@ -39,21 +39,6 @@
         </div>
     </div>
 {{-- <script type="text/javascript" src="{{asset('assets_admin/scripts/main.js')}}"></script> --}}
-<script type="text/javascript" src="{{asset('assets_admin/scripts/main-login.js')}}"></script>
-<script>
-    function changeStatus() {
-        let status = document.getElementById("status");
-        let val = status.value;
-
-        if (val == 1) {
-            val = 0;
-        }else {
-            val = 1;
-        }
-
-        console.log(val);
-        status.value = val;
-    }
-</script>
+@include('includes.admin.script')
 </body>
 </html>

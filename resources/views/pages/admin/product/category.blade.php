@@ -19,7 +19,7 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('form-kategori')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Kategori</a>
+                <a href="{{route('form-category')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Kategori</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">

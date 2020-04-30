@@ -19,7 +19,7 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('form-produk')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Produk</a>
+                <a href="{{route('form-product')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Produk</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -100,13 +100,13 @@
                                 <div class="badge badge-warning">ON</div>
                             </td>
                             <td>
-                                <a href="{{route('form-produk')}}" class="btn btn-outline-primary mb-2" data-toggle="tooltip" data-placement="bottom" title="Edit Produk">
+                                <a href="{{route('form-product')}}" class="btn btn-outline-primary mb-2" data-toggle="tooltip" data-placement="bottom" title="Edit Produk">
                                     <i class="pe-7s-pen"></i>
                                 </a>
-                                <a href="{{route('galeri')}}" class="btn btn-outline-success mb-2" data-toggle="tooltip" data-placement="bottom" title="Gallery Produk">
+                                <a href="{{route('gallery')}}" class="btn btn-outline-success mb-2" data-toggle="tooltip" data-placement="bottom" title="Gallery Produk">
                                     <i class="pe-7s-photo"></i>
                                 </a>
-                                <a href="{{route('dokumen')}}" class="btn btn-outline-warning mb-2" data-toggle="tooltip" data-placement="bottom" title="Dokumen Produk">
+                                <a href="{{route('document')}}" class="btn btn-outline-warning mb-2" data-toggle="tooltip" data-placement="bottom" title="Dokumen Produk">
                                     <i class="pe-7s-note2"></i>
                                 </a>
                                 <a href="" class="btn btn-outline-danger mb-2" data-toggle="tooltip" data-placement="bottom" title="Hapus Produk">

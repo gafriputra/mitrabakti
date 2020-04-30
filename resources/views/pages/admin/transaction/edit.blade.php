@@ -8,8 +8,8 @@
                 <i class="pe-7s-drawer icon-gradient bg-happy-itmeo">
                 </i>
             </div>
-            <div>Galeri Produk
-                <div class="page-title-subheading">List Foto Produk
+            <div>Produk
+                <div class="page-title-subheading">List Produk
                 </div>
             </div>
         </div>
@@ -19,8 +19,7 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('product')}}" class="btn btn-outline-warning"> <i class="pe-7s-angle-left-circle"></i> Kembali</a>
-                <a href="{{route('form-product')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Foto Produk</a>
+                <a href="{{route('form-produk')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Produk</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -74,42 +73,53 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="main-card mb-3 card">
-            <div class="card-body">
-                <h5 class="card-title">Pallet Changer</h5>
-                <table class="mb-0 table table-striped text-center table-responsive-sm">
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Gambar</th>
-                            <th>Is Default</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>
-                                <img src="" alt="">
-                            </td>
-                            <td>
-                                <div class="badge badge-warning">Yes</div>
-                            </td>
-                            <td>
-                                <div class="badge badge-warning">ON</div>
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-outline-primary mb-2" data-toggle="tooltip" data-placement="bottom" title="Edit Foto">
-                                    <i class="pe-7s-pen"></i>
-                                </a>
-                                <a href="" class="btn btn-outline-danger mb-2" data-toggle="tooltip" data-placement="bottom" title="Hapus Foto">
-                                    <i class="pe-7s-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <div class="card-header">
+                <strong>Ubah Transaksi</strong>
+                <small>{{ $item->uuid }}</small>
+              </div>
+              <div class="card-body card-block">
+                <form action="{{ route('transactions.update', $item->id) }}" method="POST">
+                  @method('PUT')
+                  @csrf
+                  <div class="form-group">
+                    <label for="name" class="form-control-label">Nama Pemesan</label>
+                    <input  type="text"
+                            name="name"
+                            value="{{ old('name') ? old('name') : $item->name }}"
+                            class="form-control @error('name') is-invalid @enderror"/>
+                    @error('name') <div class="text-muted">{{ $message }}</div> @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="form-control-label">Email</label>
+                    <input  type="email"
+                            name="email"
+                            value="{{ old('email') ? old('email') : $item->email }}"
+                            class="form-control @error('email') is-invalid @enderror"/>
+                    @error('email') <div class="text-muted">{{ $message }}</div> @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="number" class="form-control-label">Nomor HP</label>
+                    <input  type="text"
+                            name="phone"
+                            value="{{ old('phone') ? old('phone') : $item->phone }}"
+                            class="form-control @error('phone') is-invalid @enderror"/>
+                    @error('phone') <div class="text-muted">{{ $message }}</div> @enderror
+                  </div>
+                  <div class="form-group">
+                    <label for="address" class="form-control-label">Alamat Pemesan</label>
+                    <input  type="text"
+                            name="address"
+                            value="{{ old('address') ? old('address') : $item->address }}"
+                            class="form-control @error('address') is-invalid @enderror"/>
+                    @error('address') <div class="text-muted">{{ $message }}</div> @enderror
+                  </div>
+                  <div class="form-group">
+                    <button class="btn btn-primary btn-block" type="submit">
+                      Ubah Transaksi
+                    </button>
+                  </div>
+                </form>
+              </div>
         </div>
     </div>
 </div>
