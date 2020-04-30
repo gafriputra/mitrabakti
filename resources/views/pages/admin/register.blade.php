@@ -28,7 +28,7 @@
                 </div>
                 <div class="mt-3 position-relative form-check"><input name="check" id="exampleCheck" type="checkbox" class="form-check-input"><label for="exampleCheck" class="form-check-label">Accept our <a href="javascript:void(0);">Terms
                     and Conditions</a>.</label></div>
-                <div class="mt-4 d-flex align-items-center"><h5 class="mb-0">Already have an account? <a href="javascript:void(0);" class="text-primary">Sign in</a></h5>
+                <div class="mt-4 d-flex align-items-center"><h5 class="mb-0">Already have an account? <a href="{{route('login')}}" class="text-primary">Sign in</a></h5>
                     <div class="ml-auto">
                         <button class="btn-wide btn-pill btn-shadow btn-hover-shine btn btn-primary btn-lg">Create Account</button>
                     </div>

@@ -48,13 +48,13 @@ Route::get('/admin/addkategori', function () {
 });
 Route::get('/login', function () {
     return view('pages.admin.login');
-});
+})->name('login');
 Route::get('/register', function () {
     return view('pages.admin.register');
-});
+})->name('register');
 Route::get('/forgot', function () {
     return view('pages.admin.forgot');
-});
+})->name('forgot');
 // Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
