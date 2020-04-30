@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Kategori')
+@section('title','Produk')
 @section('content')
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -8,8 +8,8 @@
                 <i class="pe-7s-drawer icon-gradient bg-happy-itmeo">
                 </i>
             </div>
-            <div>Produk Kategori
-                <div class="page-title-subheading">List Kategori Produk
+            <div>Galeri Produk
+                <div class="page-title-subheading">List Foto Produk
                 </div>
             </div>
         </div>
@@ -19,7 +19,8 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Kategori</a>
+                <a href="{{route('produk')}}" class="btn btn-outline-warning"> <i class="pe-7s-angle-left-circle"></i> Kembali</a>
+                <a href="{{route('form-produk')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Foto Produk</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -74,13 +75,13 @@
     <div class="col-lg-12">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Table striped</h5>
-                <table class="mb-0 table table-striped text-center">
+                <h5 class="card-title">Dokumen Produk Pallet Changer</h5>
+                <table class="mb-0 table table-striped text-center table-responsive-sm">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Kategori</th>
-                            <th>Produk</th>
+                            <th>Nama</th>
+                            <th>Link</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -88,14 +89,20 @@
                     <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
                             <td>
-                                <a href="" class="btn btn-outline-primary">
+                                Partlist
+                            </td>
+                            <td>
+                                <a href="#" target="_blank">https://123123</a>
+                            </td>
+                            <td>
+                                <div class="badge badge-warning">ON</div>
+                            </td>
+                            <td>
+                                <a href="" class="btn btn-outline-primary mb-2" data-toggle="tooltip" data-placement="bottom" title="Edit Dokumen">
                                     <i class="pe-7s-pen"></i>
                                 </a>
-                                <a href="" class="btn btn-outline-danger">
+                                <a href="" class="btn btn-outline-danger mb-2" data-toggle="tooltip" data-placement="bottom" title="Hapus Dokumen">
                                     <i class="pe-7s-trash"></i>
                                 </a>
                             </td>

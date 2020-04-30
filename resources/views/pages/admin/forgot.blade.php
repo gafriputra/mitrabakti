@@ -26,7 +26,7 @@
                         <div class="position-relative form-group"><label for="exampleEmail" class="">Email</label><input name="email" id="exampleEmail" placeholder="Email here..." type="email" class="form-control"></div>
                     </div>
                 </div>
-                <div class="mt-4 d-flex align-items-center"><h6 class="mb-0"><a href="javascript:void(0);" class="text-primary">Sign in existing account</a></h6>
+                <div class="mt-4 d-flex align-items-center"><h6 class="mb-0"><a href="{{route('login')}}" class="text-primary">Sign in existing account</a></h6>
                     <div class="ml-auto">
                         <button class="btn btn-primary btn-lg">Recover Password</button>
                     </div>

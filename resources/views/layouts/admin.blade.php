@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>@yield('title')</title>
+    <title>@yield('title') | Admin | Mitrabakti</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="This is an example dashboard created using build-in elements and components.">
     <meta name="msapplication-tap-highlight" content="no">
@@ -40,5 +40,20 @@
     </div>
 {{-- <script type="text/javascript" src="{{asset('assets_admin/scripts/main.js')}}"></script> --}}
 <script type="text/javascript" src="{{asset('assets_admin/scripts/main-login.js')}}"></script>
+<script>
+    function changeStatus() {
+        let status = document.getElementById("status");
+        let val = status.value;
+
+        if (val == 1) {
+            val = 0;
+        }else {
+            val = 1;
+        }
+
+        console.log(val);
+        status.value = val;
+    }
+</script>
 </body>
 </html>

@@ -22,6 +22,70 @@
 </div>
 <div class="main-card mb-3 card">
     <div class="card-body">
+        <h5 class="card-title">Form Kategori Produk</h5>
+        <form class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">Nama Kategori</label>
+                    <input type="text" class="form-control" id="validationCustom01" placeholder="Nama.." value="{{isset($item->id) ? $item->name:''}}" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="validationCustom03">Deskripsi Kategori</label>
+                    <input type="text" class="form-control" id="validationCustom03" placeholder="Deskripsi.." value="{{isset($item->id) ? $item->description:''}}" required>
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="">Status</label>
+                <div class="switch has-switch">
+                    <div class="switch-animate switch-on" onclick="changeStatus()">
+                        @if (isset($item->id))
+                            @if ($item->status == 1)
+                                <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="1" checked>
+                            @else
+                                <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="0">
+                            @endif
+                        @else
+                            <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="1" checked>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <button class="btn btn-primary" type="submit">{{isset($item->id) ? "Update":"Tambah"}} form</button>
+        </form>
+
+        <script>
+
+            // Example starter JavaScript for disabling form submissions if there are invalid fields
+            (function() {
+                'use strict';
+                window.addEventListener('load', function() {
+                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                    var forms = document.getElementsByClassName('needs-validation');
+                    // Loop over them and prevent submission
+                    var validation = Array.prototype.filter.call(forms, function(form) {
+                        form.addEventListener('submit', function(event) {
+                            if (form.checkValidity() === false) {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated');
+                        }, false);
+                    });
+                }, false);
+            })();
+        </script>
+    </div>
+</div>
+{{-- <div class="main-card mb-3 card">
+    <div class="card-body">
         <h5 class="card-title">Bootstrap 4 Form Validation</h5>
         <form class="needs-validation" novalidate>
             <div class="form-row">
@@ -169,5 +233,5 @@
             <button class="btn btn-primary" type="submit">Submit form</button>
         </form>
     </div>
-</div>
+</div> --}}
 @endsection
