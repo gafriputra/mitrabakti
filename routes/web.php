@@ -17,66 +17,110 @@ Route::get('/', function () {
     return view('pages.cp.home');
 })
     ->name('Home');
+
 Route::get('/about', function () {
     return view('pages.cp.about');
 })
     ->name('About');
+
 Route::get('/projects', function () {
     return view('pages.cp.projects');
 })
     ->name('Projects');
+
 Route::get('/blog', function () {
     return view('pages.cp.blog');
 })
     ->name('Blog');
+
 Route::get('/contact', function () {
     return view('pages.cp.contact');
 })
     ->name('Contact');
+
 Route::get('blog/{slug}', function ($slug) {
     return view('pages.cp.blog-detail');
 })->name('BlogDetail');
 
-Route::get('/admin', function () {
-    return view('pages.admin.dashboard');
-});
+Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware(['auth'])
+    ->group(function () {
+
+        Route::get('/', function () {
+            return view('pages.admin.dashboard');
+        });
+
+        Route::get('/category', function () {
+            return view('pages.admin.product.category');
+        })->name('category');
+        Route::get('/form-category', function () {
+            return view('pages.admin.product.form-category');
+        })->name('form-category');
+
+        Route::get('/product', function () {
+            return view('pages.admin.product.product');
+        })->name('product');
+        Route::get('/form-product', function () {
+            return view('pages.admin.product.form-product');
+        })->name('form-product');
+
+        Route::get('/gallery', function () {
+            return view('pages.admin.product.gallery');
+        })->name('gallery');
+        Route::get('/form-gallery', function () {
+            return view('pages.admin.product.form-gallery');
+        })->name('form-gallery');
 
 
 
-Route::get('/admin/category', function () {
-    return view('pages.admin.product.category');
-})->name('category');
-Route::get('/admin/form-category', function () {
-    return view('pages.admin.product.form-category');
-})->name('form-category');
+        Route::get('/document', function () {
+            return view('pages.admin.product.document');
+        })->name('document');
+        Route::get('/form-document', function () {
+            return view('pages.admin.product.form-document');
+        })->name('form-document');
+    });
+
+// Route::get('/admin', function () {
+//     return view('pages.admin.dashboard');
+// });
 
 
 
-Route::get('/admin/product', function () {
-    return view('pages.admin.product.product');
-})->name('product');
-Route::get('/admin/form-product', function () {
-    return view('pages.admin.product.form-product');
-})->name('form-product');
-
-Route::get('/admin/gallery', function () {
-    return view('pages.admin.product.gallery');
-})->name('gallery');
-Route::get('/admin/form-gallery', function () {
-    return view('pages.admin.product.form-gallery');
-})->name('form-gallery');
+// Route::get('/admin/category', function () {
+//     return view('pages.admin.product.category');
+// })->name('category');
+// Route::get('/admin/form-category', function () {
+//     return view('pages.admin.product.form-category');
+// })->name('form-category');
 
 
-Route::get('/admin/document', function () {
-    return view('pages.admin.product.document');
-})->name('document');
-Route::get('/admin/form-document', function () {
-    return view('pages.admin.product.form-document');
-})->name('form-document');
+
+// Route::get('/admin/product', function () {
+//     return view('pages.admin.product.product');
+// })->name('product');
+// Route::get('/admin/form-product', function () {
+//     return view('pages.admin.product.form-product');
+// })->name('form-product');
+
+// Route::get('/admin/gallery', function () {
+//     return view('pages.admin.product.gallery');
+// })->name('gallery');
+// Route::get('/admin/form-gallery', function () {
+//     return view('pages.admin.product.form-gallery');
+// })->name('form-gallery');
+
+
+
+// Route::get('/admin/document', function () {
+//     return view('pages.admin.product.document');
+// })->name('document');
+// Route::get('/admin/form-document', function () {
+//     return view('pages.admin.product.form-document');
+// })->name('form-document');
 
 
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
