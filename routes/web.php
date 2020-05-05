@@ -44,7 +44,7 @@ Route::get('blog/{slug}', function ($slug) {
 
 Route::prefix('admin')
     ->namespace('Admin')
-    ->middleware(['auth'])
+    ->middleware(['auth', 'admin', 'verified']) // nambahin satpamnya dr kernel
     ->group(function () {
 
         Route::get('/', function () {
@@ -82,45 +82,7 @@ Route::prefix('admin')
         })->name('form-document');
     });
 
-// Route::get('/admin', function () {
-//     return view('pages.admin.dashboard');
-// });
 
 
 
-// Route::get('/admin/category', function () {
-//     return view('pages.admin.product.category');
-// })->name('category');
-// Route::get('/admin/form-category', function () {
-//     return view('pages.admin.product.form-category');
-// })->name('form-category');
-
-
-
-// Route::get('/admin/product', function () {
-//     return view('pages.admin.product.product');
-// })->name('product');
-// Route::get('/admin/form-product', function () {
-//     return view('pages.admin.product.form-product');
-// })->name('form-product');
-
-// Route::get('/admin/gallery', function () {
-//     return view('pages.admin.product.gallery');
-// })->name('gallery');
-// Route::get('/admin/form-gallery', function () {
-//     return view('pages.admin.product.form-gallery');
-// })->name('form-gallery');
-
-
-
-// Route::get('/admin/document', function () {
-//     return view('pages.admin.product.document');
-// })->name('document');
-// Route::get('/admin/form-document', function () {
-//     return view('pages.admin.product.form-document');
-// })->name('form-document');
-
-
-
-
-Auth::routes();
+Auth::routes(['verify' => true]);

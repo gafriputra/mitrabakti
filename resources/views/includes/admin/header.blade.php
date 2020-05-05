@@ -84,10 +84,10 @@
                         </div>
                         <div class="widget-content-left  ml-3 header-user-info">
                             <div class="widget-heading">
-                                Alina Mclourd
+                                {{Auth::user()->name}}
                             </div>
                             <div class="widget-subheading">
-                                VP People Manager
+                                Admin
                             </div>
                         </div>
                         <div class="widget-content-right header-user-info ml-3">
