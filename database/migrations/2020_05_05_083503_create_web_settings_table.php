@@ -22,6 +22,7 @@ class CreateWebSettingsTable extends Migration
             $table->text('description');
             $table->string('address');
             $table->string('store_link');
+            $table->string('google_maps');
             $table->timestamps();
         });
     }
