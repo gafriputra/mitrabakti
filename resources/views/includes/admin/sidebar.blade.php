@@ -40,7 +40,7 @@
                 </li>
                 <li class="app-sidebar__heading">Product</li>
                 <li  >
-                    <a href="{{route('category')}}">
+                    <a href="{{route('product-categories.index')}}">
                         <i class="metismenu-icon pe-7s-display2"></i>
                         Kategori
                     </a>

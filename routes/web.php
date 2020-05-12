@@ -51,12 +51,7 @@ Route::prefix('admin')
             return view('pages.admin.dashboard');
         });
 
-        Route::get('/category', function () {
-            return view('pages.admin.product.category');
-        })->name('category');
-        Route::get('/form-category', function () {
-            return view('pages.admin.product.form-category');
-        })->name('form-category');
+        Route::resource('product-categories', 'ProductCategoriesController');
 
         Route::get('/product', function () {
             return view('pages.admin.product.product');

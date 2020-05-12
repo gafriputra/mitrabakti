@@ -19,7 +19,7 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('form-category')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Kategori</a>
+                <a href="{{route('product-categories.create')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Kategori</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -86,22 +86,36 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>
-                                <div class="badge badge-warning">ON</div>
-                            </td>
-                            <td>
-                                <a href="" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Edit Kategori">
-                                    <i class="pe-7s-pen"></i>
-                                </a>
-                                <a href="" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus Kategori">
-                                    <i class="pe-7s-trash"></i>
-                                </a>
-                            </td>
-                        </tr>
+                        @forelse ($items as $item)
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{$item->name}}</td>
+                                <td>Otto</td>
+                                <td>
+                                    @if ($item->status == 1)
+                                        <div class="badge badge-warning">ON</div>
+                                    @else
+                                    <div class="badge badge-danger">OFF</div>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{route('product-categories.edit', $item->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Edit Kategori">
+                                        <i class="pe-7s-pen"></i>
+                                    </a>
+                                    <form action="{{route('product-categories.destroy', $item->id)}}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus Kategori">
+                                            <i class="pe-7s-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="5" class="text-center">Data Kosong</td>
+                            </tr>
+                        @endforelse
                     </tbody>
                 </table>
             </div>

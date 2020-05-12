@@ -1,5 +1,22 @@
 @extends('layouts.admin')
 @section('title','Kategori')
+@if(isset($item))
+    @php
+        $id = $item->id;
+        $button = "Update";
+        $action = route("product-categories.update",$id);
+        $name = $item->name;
+        $deskripsi = $item->description;
+    @endphp
+@else
+    @php
+        $id = false;
+        $button = "Tambah";
+        $action = route("product-categories.store");
+        $name = false;
+        $deskripsi = false;
+    @endphp
+@endif
 @section('content')
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -8,14 +25,14 @@
                 <i class="lnr-picture text-danger">
                 </i>
             </div>
-            <div>{{isset($item->id) ? "Update":"Tambah"}} Kategori
+            <div>{{$button}} Kategori
                 <div class="page-title-subheading">Kategori Produk.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             <div class="d-inline-block dropdown">
-                <a href="" class="btn btn-outline-success">List Kategori Produk</a>
+                <a href="{{route('product-categories.index')}}" class="btn btn-outline-success">List Kategori Produk</a>
             </div>
         </div>
     </div>
@@ -23,11 +40,17 @@
 <div class="main-card mb-3 card">
     <div class="card-body">
         <h5 class="card-title">Form Kategori Produk</h5>
-        <form class="needs-validation" novalidate>
+        <form class="needs-validation" novalidate action="{{$action}}" method="POST">
+            @csrf
+            @if ($id)
+                @method('PUT')
+                <input type="hidden" name="id" value="{{$id}}">
+            @endif
             <div class="form-row">
                 <div class="col-md-4 mb-3">
                     <label for="validationCustom01">Nama Kategori</label>
-                    <input type="text" class="form-control" id="validationCustom01" placeholder="Nama.." value="{{isset($item->id) ? $item->name:''}}" required>
+                    <input type="text" name="name"class="form-control @error('name') is-invalid @enderror" id="validationCustom01" placeholder="Nama.." value="{{$name}}" required>
+                    @error('name') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -36,7 +59,8 @@
             <div class="form-row">
                 <div class="col-md-12 mb-3">
                     <label for="validationCustom03">Deskripsi Kategori</label>
-                    <input type="text" class="form-control" id="validationCustom03" placeholder="Deskripsi.." value="{{isset($item->id) ? $item->description:''}}" required>
+                    <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="validationCustom03" placeholder="Deskripsi.." value="{{$deskripsi}}" required>
+                    @error('description') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -45,20 +69,21 @@
             <div class="form-group">
                 <label for="">Status</label>
                 <div class="switch has-switch">
-                    <div class="switch-animate switch-on" onclick="changeStatus()">
-                        @if (isset($item->id))
+                    <div class="switch-animate switch-on @error('status') is-invalid @enderror" onclick="changeStatus()">
+                        @if ($id)
                             @if ($item->status == 1)
                                 <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="1" checked>
                             @else
-                                <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="0">
+                                <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="0" checked>
                             @endif
                         @else
                             <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="1" checked>
                         @endif
+                        @error('status') <div class="text-muted">{{$message}}</div> @enderror
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">{{isset($item->id) ? "Update":"Tambah"}} form</button>
+            <button class="btn btn-primary" type="submit">{{$button}} Kategori</button>
         </form>
 
         <script>
