@@ -55,6 +55,7 @@ Route::prefix('admin')
         Route::resource('products', 'Store\Product\ProductsController');
         // company profile
         Route::resource('banners', 'CompanyProfile\BannersController');
+        Route::resource('setting', 'CompanyProfile\WebSettingController');
 
         Route::get('/gallery', function () {
             return view('pages.admin.product.gallery');

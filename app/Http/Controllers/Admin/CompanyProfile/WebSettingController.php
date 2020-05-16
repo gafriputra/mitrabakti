@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\CompanyProfile;
 
 use App\Http\Controllers\Controller;
+use App\Model\CompanyProfile\WebSetting;
 use Illuminate\Http\Request;
 
 class WebSettingController extends Controller
@@ -57,8 +58,8 @@ class WebSettingController extends Controller
     public function edit($id)
     {
         // ambil semua data
-        $item = Banner::findOrFail($id);
-        return view('pages.admin.cp.banner.form-setting', [
+        $item = WebSetting::findOrFail($id);
+        return view('pages.admin.cp.setting.form-setting', [
             'item' => $item
         ]);
     }
@@ -75,24 +76,20 @@ class WebSettingController extends Controller
         // insert semuanya jika sudah divalidasi oleh ProductRequest
         $data = $request->all();
         // cari data
-        $item = Banner::findOrFail($id);
+        $item = WebSetting::findOrFail($id);
         // cek gambar
         if ($request->file('image')) {
-            unlink('storage/' . $item->image);
+            // unlink('storage/' . $item->image);
             $data['image'] = $request->file('image')->store(
-                'assets/image/banner',
+                'assets/image/core',
                 'public'
             );
         } else {
             $data['image'] = $item->image;
         }
-
-        if (!isset($data['status'])) {
-            $data['status'] = 0;
-        }
         // update data
         $item->update($data);
-        return redirect()->route('banners.index');
+        return redirect()->route('setting.edit', $id);
     }
 
     /**

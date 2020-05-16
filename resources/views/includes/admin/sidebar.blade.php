@@ -238,6 +238,12 @@
                         Banners
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('setting.edit',1)}}">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Web Setting
+                    </a>
+                </li>
                 <li class="app-sidebar__heading">Forms</li>
                 <li>
                     <a href="forms-controls.html">
