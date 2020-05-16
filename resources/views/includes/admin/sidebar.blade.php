@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li  >
-                    <a href="{{route('product')}}">
+                    <a href="{{route('products.index')}}">
                         <i class="metismenu-icon pe-7s-diamond"></i>
                         Produk
                     </a>
@@ -231,11 +231,11 @@
                         Tables
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Widgets</li>
+                <li class="app-sidebar__heading">Company Profile</li>
                 <li>
-                    <a href="dashboard-boxes.html">
+                    <a href="{{route('banners.index')}}">
                         <i class="metismenu-icon pe-7s-display2"></i>
-                        Dashboard Boxes
+                        Banners
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Forms</li>

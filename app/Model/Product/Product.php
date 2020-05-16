@@ -18,4 +18,18 @@ class Product extends Model
 
     // hidden gunanya untuk ada beberapa variabel yang gamau dimunculin, dimasukkan kesini
     protected $hidden = [];
+
+    // relasi gallery
+    public function category()
+    {
+        // produk galeri ini milik dari produk
+        // (model::class, 'foreignkey','primary')
+        return $this->belongsTo(Product::class, 'category_id', 'id');
+    }
+
+    // bikin relasi ke gallery
+    public function productGalleries()
+    {
+        // return $this->hasMany(ProductGallery::class, 'product_id');
+    }
 }

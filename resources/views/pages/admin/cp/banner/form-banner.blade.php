@@ -1,20 +1,24 @@
 @extends('layouts.admin')
-@section('title','Kategori')
+@section('title','Banner')
 @if(isset($item))
     @php
         $id = $item->id;
         $button = "Update";
-        $action = route("product-categories.update",$id);
-        $name = $item->name;
-        $deskripsi = $item->description;
+        $action = route("banners.update",$id);
+        $header1 = $item->header1;
+        $header2 = $item->header2;
+        $caption = $item->caption;
+        $link = $item->link;
     @endphp
 @else
     @php
         $id = false;
         $button = "Tambah";
-        $action = route("product-categories.store");
-        $name = false;
-        $deskripsi = false;
+        $action = route("banners.store");
+        $header1 = false;
+        $header2 = false;
+        $caption = false;
+        $link = false;
     @endphp
 @endif
 @section('content')
@@ -25,32 +29,40 @@
                 <i class="lnr-picture text-danger">
                 </i>
             </div>
-            <div>{{$button}} Kategori
-                <div class="page-title-subheading">Kategori Produk.
+            <div>{{$button}} Banner
+                <div class="page-title-subheading">Banner.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             <div class="d-inline-block dropdown">
-                <a href="{{route('product-categories.index')}}" class="btn btn-outline-success">List Kategori Produk</a>
+                <a href="{{route('banners.index')}}" class="btn btn-outline-success">List Banner</a>
             </div>
         </div>
     </div>
 </div>
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Form Kategori Produk</h5>
-        <form class="needs-validation" novalidate action="{{$action}}" method="POST">
+        <h5 class="card-title">Form Banner</h5>
+        <form class="needs-validation" novalidate action="{{$action}}" method="POST" enctype="multipart/form-data">
             @csrf
             @if ($id)
                 @method('PUT')
                 <input type="hidden" name="id" value="{{$id}}">
             @endif
             <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="validationCustom01">Nama Kategori</label>
-                    <input type="text" name="name"class="form-control @error('name') is-invalid @enderror" id="validationCustom01" placeholder="Nama.." value="{{$name}}" required>
-                    @error('name') <div class="text-muted">{{$message}}</div> @enderror
+                <div class="col-md-6 mb-3">
+                    <label for="header1">Header 1 Banner</label>
+                    <input type="text" name="header1"class="form-control @error('header1') is-invalid @enderror" id="header1" placeholder="Header1.." value="{{$header1}}" max="20" required>
+                    @error('header1') <div class="text-muted">{{$message}}</div> @enderror
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="header2">Header 2 Banner</label>
+                    <input type="text" name="header2"class="form-control @error('header2') is-invalid @enderror" id="header2" placeholder="Header2.." value="{{$header2}}" max="20" required>
+                    @error('header2') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -58,9 +70,27 @@
             </div>
             <div class="form-row">
                 <div class="col-md-12 mb-3">
-                    <label for="validationCustom03">Deskripsi Kategori</label>
-                    <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="validationCustom03" placeholder="Deskripsi.." value="{{$deskripsi}}" required>
-                    @error('description') <div class="text-muted">{{$message}}</div> @enderror
+                    <label for="caption">Caption Banner</label>
+                    <input type="text" name="caption"class="form-control @error('caption') is-invalid @enderror" id="caption" placeholder="caption.." value="{{$caption}}" max="50" required>
+                    @error('caption') <div class="text-muted">{{$message}}</div> @enderror
+                    <div class="valid-feedback">
+                        Looks good!
+                    </div>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="image" class="form-control-label">Gambar Banner</label>
+                    <input type="file" name="image" value="{{ old('image') }}" accept="image/*" required
+                        class="form-control @error('image') is-invalid @enderror" />
+                    @error('image') <div class="text-muted">{{ $message }}</div> @enderror
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                    <label for="link">Link Banner</label>
+                    <input type="text" name="link"class="form-control @error('link') is-invalid @enderror" id="link" placeholder="link.." value="{{$link}}" required>
+                    @error('link') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -83,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">{{$button}} Kategori</button>
+            <button class="btn btn-primary" type="submit">{{$button}} Banner</button>
         </form>
 
         <script>

@@ -17,6 +17,7 @@ class CreateBannersTable extends Migration
             $table->id();
             $table->string('header1', 20);
             $table->string('header2', 20);
+            $table->string('image');
             $table->string('caption', 50);
             $table->string('link');
             $table->boolean('status');

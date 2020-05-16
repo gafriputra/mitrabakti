@@ -50,15 +50,11 @@ Route::prefix('admin')
         Route::get('/', function () {
             return view('pages.admin.dashboard');
         });
-
-        Route::resource('product-categories', 'ProductCategoriesController');
-
-        Route::get('/product', function () {
-            return view('pages.admin.product.product');
-        })->name('product');
-        Route::get('/form-product', function () {
-            return view('pages.admin.product.form-product');
-        })->name('form-product');
+        // store
+        Route::resource('product-categories', 'Store\Product\ProductCategoriesController');
+        Route::resource('products', 'Store\Product\ProductsController');
+        // company profile
+        Route::resource('banners', 'CompanyProfile\BannersController');
 
         Route::get('/gallery', function () {
             return view('pages.admin.product.gallery');

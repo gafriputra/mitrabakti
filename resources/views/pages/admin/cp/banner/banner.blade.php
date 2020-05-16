@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Produk')
+@section('title','Banner')
 @section('content')
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -8,8 +8,8 @@
                 <i class="pe-7s-drawer icon-gradient bg-happy-itmeo">
                 </i>
             </div>
-            <div>Produk
-                <div class="page-title-subheading">List Produk
+            <div>Banner
+                <div class="page-title-subheading">List Banner Produk
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                 <i class="fa fa-star"></i>
             </button> --}}
             <div class="d-inline-block dropdown">
-                <a href="{{route('products.create')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Produk</a>
+                <a href="{{route('banners.create')}}" class="btn btn-outline-primary"> <i class="pe-7s-plus"></i> Tambah Banner</a>
                 <button type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false" class="btn-shadow dropdown-toggle btn btn-info">
                     <span class="btn-icon-wrapper pr-2 opacity-7">
@@ -74,59 +74,48 @@
     <div class="col-lg-12">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Daftar</h5>
+                <h5 class="card-title">Table striped</h5>
                 <table class="mb-0 table table-striped text-center table-responsive-sm">
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nama</th>
-                            <th>Harga</th>
-                            <th>Kategori</th>
-                            <th>Gambar</th>
-                            <th>Dokumen</th>
+                            <th>Header 1</th>
+                            <th>Header 2</th>
+                            <th>Image</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         @forelse ($items as $item)
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{$item->category['name']}}</td>
-                            <td>6 Gambar</td>
-                            <td>7 File</td>
-                            <td>
-                                @if ($item->status == 1)
-                                    <div class="badge badge-warning">ON</div>
-                                @else
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>{{$item->header1}}</td>
+                                <td>{{$item->header2}}</td>
+                                <td><img src="{{asset('storage/'.$item->image)}}" alt="" height="50px"></td>
+                                <td>
+                                    @if ($item->status == 1)
+                                        <div class="badge badge-warning">ON</div>
+                                    @else
                                     <div class="badge badge-danger">OFF</div>
-                                @endif
-                            </td>
-                            <td>
-                                <a href="{{route('products.edit',$item->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Edit Produk">
-                                    <i class="pe-7s-pen"></i>
-                                </a>
-                                <a href="{{route('gallery')}}" class="btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Gallery Produk">
-                                    <i class="pe-7s-photo"></i>
-                                </a>
-                                <a href="{{route('document')}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="bottom" title="Dokumen Produk">
-                                    <i class="pe-7s-note2"></i>
-                                </a>
-                                <form action="{{route('products.destroy', $item->id)}}" method="POST" class="d-inline">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus Produk">
-                                        <i class="pe-7s-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{route('banners.edit', $item->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Edit Banner">
+                                        <i class="pe-7s-pen"></i>
+                                    </a>
+                                    <form action="{{route('banners.destroy', $item->id)}}" method="POST" class="d-inline">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="Hapus Banner">
+                                            <i class="pe-7s-trash"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
                         @empty
                             <tr>
-                                <td colspan="8" class="text-center">Data Kosong</td>
+                                <td colspan="6" class="text-center">Data Kosong</td>
                             </tr>
                         @endforelse
                     </tbody>

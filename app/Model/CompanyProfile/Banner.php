@@ -1,24 +1,18 @@
 <?php
 
-namespace App\Model\Product;
+namespace App\Model\CompanyProfile;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Banner extends Model
 {
     // filllable gunanya untuk jika insert data, kita bisa langsung assign
     // data apa saja yang kita insert secara langsung
 
     protected $fillable = [
-        'name', 'description', 'status'
+        'header1', 'header2', 'image', 'caption', 'link', 'status'
     ];
 
     // hidden gunanya untuk ada beberapa variabel yang gamau dimunculin, dimasukkan kesini
     protected $hidden = [];
-
-    // bikin relasi ke gallery
-    public function product()
-    {
-        return $this->hasMany(Product::class, 'category_id');
-    }
 }

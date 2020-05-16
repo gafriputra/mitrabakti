@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Store\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\CategoryRequest;
+use App\Http\Requests\Product\ProductRequest;
 use App\Model\Product\Category;
+use App\Model\Product\Product;
 
-class ProductCategoriesController extends Controller
+// slug bawaan laravel
+use illuminate\Support\Str;
+
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +20,8 @@ class ProductCategoriesController extends Controller
     public function index()
     {
         // ambil semua data
-        $items = Category::orderBy('id', 'DESC')->get();
-        return view('pages.admin.product.category', [
+        $items = Product::with('category')->orderBy('id', 'DESC')->get();
+        return view('pages.admin.product.product', [
             'items' => $items
         ]);
     }
@@ -29,8 +33,10 @@ class ProductCategoriesController extends Controller
      */
     public function create()
     {
-        //
-        return view('pages.admin.product.form-category');
+        $item = Category::where(['status' => 1])->get();
+        return view('pages.admin.product.form-product', [
+            'itemCategory' => $item
+        ]);
     }
 
     /**
@@ -39,15 +45,17 @@ class ProductCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryRequest $request)
+    public function store(ProductRequest $request)
     {
         // insert semuanya jika sudah divalidasi oleh ProductRequest
         $data = $request->all();
+        // bikin slug, pakai method bawaan laravel
+        $data['slug'] = Str::slug($request->name);
         if (!isset($data['status'])) {
             $data['status'] = 0;
         }
-        Category::create($data);
-        return redirect()->route('product-categories.index');
+        Product::create($data);
+        return redirect()->route('products.index');
     }
 
     /**
@@ -69,15 +77,7 @@ class ProductCategoriesController extends Controller
      */
     public function edit($id)
     {
-        // jika ketemu keluarkan data, jika tidak lgsg page 404
-        $item = Category::findOrFail($id);
-        // return view('pages.products.edit')
-        //     ->with([
-        //         'item' => $item
-        //     ]);
-        return view('pages.admin.product.form-category', [
-            'item' => $item,
-        ]);
+        //
     }
 
     /**
@@ -87,18 +87,9 @@ class ProductCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(ProductRequest $request, $id)
     {
-        // insert semuanya jika sudah divalidasi oleh ProductRequest
-        $data = $request->all();
-        if (!isset($data['status'])) {
-            $data['status'] = 0;
-        }
-        // cari data
-        $item = Category::findOrFail($id);
-        // update data
-        $item->update($data);
-        return redirect()->route('product-categories.index');
+        //
     }
 
     /**
@@ -109,12 +100,6 @@ class ProductCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //cari category
-        $item = Category::findOrFail($id);
-        // hapus
-        $item->delete();
-        // hapus gambar
-        // ProductGallery::where('product_id', $id)->delete();
-        return redirect()->route('product-categories.index');
+        //
     }
 }
