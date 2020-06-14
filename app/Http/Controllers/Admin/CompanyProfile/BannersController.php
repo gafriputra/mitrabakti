@@ -17,7 +17,7 @@ class BannersController extends Controller
     {
         // ambil semua data
         $items = Banner::orderBy('id', 'DESC')->get();
-        return view('pages.admin.cp.banner.banner', [
+        return view('pages.admin.cp.banner.index', [
             'items' => $items
         ]);
     }

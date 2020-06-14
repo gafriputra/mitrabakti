@@ -56,6 +56,7 @@ Route::prefix('admin')
         // company profile
         Route::resource('banners', 'CompanyProfile\BannersController');
         Route::resource('setting', 'CompanyProfile\WebSettingController');
+        Route::resource('services', 'CompanyProfile\ServicesController');
 
         Route::get('/gallery', function () {
             return view('pages.admin.product.gallery');
@@ -78,3 +79,15 @@ Route::prefix('admin')
 
 
 Auth::routes(['verify' => true]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

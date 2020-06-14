@@ -55,7 +55,7 @@
             <div class="form-row">
                 <div class="col-md-6 mb-3">
                     <label for="image" class="form-control-label">Logo</label>
-                    <input type="file" name="image" value="{{ old('image') }}" accept="image/*"
+                    <input type="file" name="image" value="{{ old('image') }}" accept="image/*" required
                         class="form-control @error('image') is-invalid @enderror" />
                     @error('image') <div class="text-muted">{{ $message }}</div> @enderror
                 </div>

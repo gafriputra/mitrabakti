@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin\CompanyProfile;
 
 use App\Http\Controllers\Controller;
-use App\Model\CompanyProfile\WebSetting;
+use App\Model\CompanyProfile\Team;
 use Illuminate\Http\Request;
 
-class WebSettingController extends Controller
+class TeamsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,11 @@ class WebSettingController extends Controller
      */
     public function index()
     {
-        //
+        // ambil semua data
+        $items = Team::all();
+        return view('pages.admin.cp.services.index', [
+            'items' => $items
+        ]);
     }
 
     /**
@@ -47,6 +51,7 @@ class WebSettingController extends Controller
      */
     public function show($id)
     {
+        //
     }
 
     /**
@@ -58,8 +63,8 @@ class WebSettingController extends Controller
     public function edit($id)
     {
         // ambil semua data
-        $item = WebSetting::findOrFail($id);
-        return view('pages.admin.cp.setting.form-setting', [
+        $item = Team::findOrFail($id);
+        return view('pages.admin.cp.services.form-service', [
             'item' => $item
         ]);
     }
@@ -76,20 +81,21 @@ class WebSettingController extends Controller
         // insert semuanya jika sudah divalidasi oleh ProductRequest
         $data = $request->all();
         // cari data
-        $item = WebSetting::findOrFail($id);
+        $item = Team::findOrFail($id);
         // cek gambar
         if ($request->file('image')) {
-            unlink('storage/' . $item->image);
+            // unlink('storage/' . $item->image);
             $data['image'] = $request->file('image')->store(
-                'assets/image/core',
+                'assets/image/service',
                 'public'
             );
         } else {
             $data['image'] = $item->image;
         }
+
         // update data
         $item->update($data);
-        return redirect()->route('setting.edit', $id);
+        return redirect()->route('services.index');
     }
 
     /**

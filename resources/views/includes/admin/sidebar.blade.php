@@ -244,6 +244,12 @@
                         Web Setting
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('services.index')}}">
+                        <i class="metismenu-icon pe-7s-display2"></i>
+                        Services
+                    </a>
+                </li>
                 <li class="app-sidebar__heading">Forms</li>
                 <li>
                     <a href="forms-controls.html">
