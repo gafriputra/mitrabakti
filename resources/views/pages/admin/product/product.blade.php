@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('title','Produk')
 @section('content')
+{{-- @dump($items) --}}
 <div class="app-page-title">
     <div class="page-title-wrapper">
         <div class="page-title-heading">
@@ -74,7 +75,7 @@
     <div class="col-lg-12">
         <div class="main-card mb-3 card">
             <div class="card-body">
-                <h5 class="card-title">Daftar</h5>
+                <h5 class="card-title">Daftar Produk</h5>
                 <table class="mb-0 table table-striped text-center table-responsive-sm">
                     <thead>
                         <tr>
@@ -89,14 +90,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $i = 1
+                        @endphp
                         @forelse ($items as $item)
+
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{$i}}</th>
                             <td>{{$item->name}}</td>
-                            <td>{{$item->price}}</td>
-                            <td>{{$item->category['name']}}</td>
-                            <td>6 Gambar</td>
-                            <td>7 File</td>
+                            <td>Rp. {{number_format($item->price, 0, ',', '.')}}</td>
+                            <td>{{$item->category->name}}</td>
+                            <td>{{$item->productGalleries->count()}} Gambar</td>
+                            <td>{{$item->productDocuments->count()}} File</td>
                             <td>
                                 @if ($item->status == 1)
                                     <div class="badge badge-warning">ON</div>
@@ -108,10 +113,10 @@
                                 <a href="{{route('products.edit',$item->id)}}" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="Edit Produk">
                                     <i class="pe-7s-pen"></i>
                                 </a>
-                                <a href="{{route('gallery')}}" class="btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Gallery Produk">
+                                <a href="{{route('gallery.show', $item->id)}}" class="btn btn-outline-success" data-toggle="tooltip" data-placement="bottom" title="Gallery Produk">
                                     <i class="pe-7s-photo"></i>
                                 </a>
-                                <a href="{{route('document')}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="bottom" title="Dokumen Produk">
+                                <a href="{{route('document.show',$item->id)}}" class="btn btn-outline-warning" data-toggle="tooltip" data-placement="bottom" title="Dokumen Produk">
                                     <i class="pe-7s-note2"></i>
                                 </a>
                                 <form action="{{route('products.destroy', $item->id)}}" method="POST" class="d-inline">
@@ -123,7 +128,9 @@
                                 </form>
                             </td>
                         </tr>
-
+                        @php
+                            $i++
+                        @endphp
                         @empty
                             <tr>
                                 <td colspan="8" class="text-center">Data Kosong</td>

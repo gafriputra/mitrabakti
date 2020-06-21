@@ -1,24 +1,19 @@
 @extends('layouts.admin')
-@section('title','Produk')
+@section('title','Gallery')
 @if(isset($item))
     @php
         $id = $item->id;
         $button = "Update";
-        $action = route("products.update",$id);
-        $name = $item->name;
-        $deskripsi = $item->description;
-        $price = $item->price;
-        $categoryId = $item->category_id;
+        $action = route("gallery.update",$id);
+        $image = $item->image;
+        $product_id = $item->product_id;
     @endphp
 @else
     @php
         $id = false;
         $button = "Tambah";
-        $action = route("products.store");
-        $name = false;
-        $deskripsi = false;
-        $price = false;
-        $categoryId = false;
+        $action = route("gallery.store");
+        $image = false;
     @endphp
 @endif
 @section('content')
@@ -29,75 +24,57 @@
                 <i class="lnr-picture text-danger">
                 </i>
             </div>
-            <div>{{$button}} Produk
-                <div class="page-title-subheading">Produk.
+            <div>{{$button}} Gallery
+                <div class="page-title-subheading">Gallery Produk.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             <div class="d-inline-block dropdown">
-                <a href="{{route('products.index')}}" class="btn btn-outline-success">List Produk</a>
+                <a href="{{route('gallery.show', $product_id)}}" class="btn btn-outline-success">List Gallery Produk</a>
             </div>
         </div>
     </div>
 </div>
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Form Produk</h5>
-        <form class="needs-validation" novalidate action="{{$action}}" method="POST">
+        <h5 class="card-title">Form Gallery Produk</h5>
+        <form class="needs-validation" novalidate action="{{$action}}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="product_id" value="{{$product_id}}">
             @if ($id)
                 @method('PUT')
                 <input type="hidden" name="id" value="{{$id}}">
             @endif
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="exampleCustomSelect" class="">Kategori Produk</label>
-                    <select type="select" id="exampleCustomSelect" name="category_id" class="custom-select">
-                        @forelse ($itemCategory as $item)
-                            @if ($item->id == $categoryId)
-                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
-                            @else
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endif
-                        @empty
-                            <option aria-readonly="true">Kategory Kosong</option>
-                        @endforelse
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-12 mb-3">
-                    <label for="validationCustom01">Nama Produk</label>
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom01" placeholder="Nama.." value="{{$name}}" required>
-                    @error('name') <div class="text-muted">{{$message}}</div> @enderror
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-12 mb-3">
-                    <label for="description">Deskripsi </label>
-                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" required >{{$deskripsi}}</textarea>
-                    @error('description') <div class="text-muted">{{$message}}</div> @enderror
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-4 mb-3">
-                    <label for="price">Harga Produk</label>
-                    <input type="number" name="price"class="form-control @error('price') is-invalid @enderror" id="price" placeholder="Harga.." value="{{$price}}" required>
-                    @error('price') <div class="text-muted">{{$message}}</div> @enderror
+                    <label for="validationCustom01">Foto Produk</label>
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror" id="validationCustom01" placeholder="File Foto" value="{{$image}}">
+                    @error('image') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
                 </div>
             </div>
             <div class="form-group">
-                <label for="">Status</label>
+                <label for="default">Gambar Utama?</label>
+                <div class="switch has-switch">
+                    <div class="switch-animate switch-on @error('is_default') is-invalid @enderror" onclick="gantiNilai('default')">
+                        @if ($id)
+                            @if ($item->is_default == 1)
+                                <input type="checkbox" id="default" name="is_default" data-toggle="toggle" data-onstyle="primary" value="1" checked>
+                            @else
+                                <input type="checkbox" id="default" name="is_default" data-toggle="toggle" data-onstyle="primary" value="0">
+                            @endif
+                        @else
+                            <input type="checkbox" id="default" name="is_default" data-toggle="toggle" data-onstyle="primary" value="1" checked>
+                        @endif
+                        @error('is_default') <div class="text-muted">{{$message}}</div> @enderror
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
                 <div class="switch has-switch">
                     <div class="switch-animate switch-on @error('status') is-invalid @enderror" onclick="gantiNilai('status')">
                         @if ($id)
@@ -113,7 +90,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">{{$button}} </button>
+            <button class="btn btn-primary" type="submit">{{$button}} Gallery</button>
         </form>
 
         <script>
@@ -134,7 +111,7 @@
                             form.classList.add('was-validated');
                         }, false);
                     });
-                }, false);
+                }, false);~
             })();
         </script>
     </div>

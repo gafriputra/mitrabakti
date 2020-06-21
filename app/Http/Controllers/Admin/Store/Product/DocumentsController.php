@@ -3,14 +3,11 @@
 namespace App\Http\Controllers\Admin\Store\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Product\ProductRequest;
-use App\Model\Product\Category;
 use App\Model\Product\Product;
+use App\Model\Product\ProductDocument;
+use Illuminate\Http\Request;
 
-// slug bawaan laravel
-use illuminate\Support\Str;
-
-class ProductsController extends Controller
+class DocumentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +16,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        // ambil semua data
-        $items = Product::with(['category', 'productGalleries', 'productDocuments'])->orderBy('id', 'DESC')->get();
-        return view('pages.admin.product.product', [
-            'items' => $items
-        ]);
+        //
     }
 
     /**
@@ -33,9 +26,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        $item = Category::where(['status' => 1])->get();
-        return view('pages.admin.product.form-product', [
-            'itemCategory' => $item
+        $product_id = $_GET['p'];
+        return view('pages.admin.product.form-document')->with([
+            'product_id' => $product_id
         ]);
     }
 
@@ -45,17 +38,15 @@ class ProductsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProductRequest $request)
+    public function store(Request $request)
     {
-        // insert semuanya jika sudah divalidasi oleh ProductRequest
         $data = $request->all();
-        // bikin slug, pakai method bawaan laravel
-        $data['slug'] = Str::slug($request->name);
         if (!isset($data['status'])) {
             $data['status'] = 0;
         }
-        Product::create($data);
-        return redirect()->route('products.index');
+
+        ProductDocument::create($data);
+        return redirect()->route('document.show', $data['product_id']);
     }
 
     /**
@@ -66,7 +57,12 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $items = ProductDocument::with('product')->where(['product_id' => $id])->get();
+        $product = Product::findOrFail($id);
+        return view('pages.admin.product.document')->with([
+            'items' => $items,
+            'product' => $product
+        ]);
     }
 
     /**
@@ -77,13 +73,11 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-         // jika ketemu keluarkan data, jika tidak lgsg page 404
-         $item = Product::findOrFail($id);
-         $category = Category::where(['status' => 1])->get();
-         return view('pages.admin.product.form-product', [
-             'item' => $item,
-             'itemCategory' => $category
-         ]);
+        // jika ketemu keluarkan data, jika tidak lgsg page 404
+        $item = ProductDocument::findOrFail($id);
+        return view('pages.admin.product.form-document', [
+            'item' => $item
+        ]);
     }
 
     /**
@@ -93,20 +87,17 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(ProductRequest $request, $id)
+    public function update(Request $request, $id)
     {
+         $data = $request->all();
 
-        // insert semuanya jika sudah divalidasi oleh ProductRequest
-        $data = $request->all();
-        // bikin slug, pakai method bawaan laravel
-        $data['slug'] = Str::slug($request->name);
         if (!isset($data['status'])) {
             $data['status'] = 0;
         }
 
-        $item = Product::findOrFail($id);
+        $item = ProductDocument::findOrFail($id);
         $item->update($data);
-        return redirect()->route('products.index');
+        return redirect()->route('document.show', $data['product_id']);
     }
 
     /**

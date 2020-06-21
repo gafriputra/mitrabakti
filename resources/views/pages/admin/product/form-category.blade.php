@@ -69,7 +69,7 @@
             <div class="form-group">
                 <label for="">Status</label>
                 <div class="switch has-switch">
-                    <div class="switch-animate switch-on @error('status') is-invalid @enderror" onclick="changeStatus()">
+                    <div class="switch-animate switch-on @error('status') is-invalid @enderror" onclick="gantiNilai('status')">
                         @if ($id)
                             @if ($item->status == 1)
                                 <input type="checkbox" id="status" name="status" data-toggle="toggle" data-onstyle="primary" value="1" checked>

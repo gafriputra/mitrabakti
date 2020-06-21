@@ -1,26 +1,28 @@
 @extends('layouts.admin')
-@section('title','Produk')
+@section('title','Documents')
 @if(isset($item))
     @php
         $id = $item->id;
         $button = "Update";
-        $action = route("products.update",$id);
+        $action = route("document.update",$id);
         $name = $item->name;
-        $deskripsi = $item->description;
-        $price = $item->price;
-        $categoryId = $item->category_id;
+        $document_link = $item->document_link;
+        $typeFile = $item->type;
+        $product_id = $item->product_id;
     @endphp
 @else
     @php
         $id = false;
         $button = "Tambah";
-        $action = route("products.store");
+        $action = route("document.store");
         $name = false;
-        $deskripsi = false;
-        $price = false;
-        $categoryId = false;
+        $document_link = false;
+        $typeFile = false;
     @endphp
 @endif
+@php
+    $itemType = ["pdf","doc","ppt","excel"]
+@endphp
 @section('content')
 <div class="app-page-title">
     <div class="page-title-wrapper">
@@ -29,47 +31,32 @@
                 <i class="lnr-picture text-danger">
                 </i>
             </div>
-            <div>{{$button}} Produk
-                <div class="page-title-subheading">Produk.
+            <div>{{$button}} Document
+                <div class="page-title-subheading">Document Produk.
                 </div>
             </div>
         </div>
         <div class="page-title-actions">
             <div class="d-inline-block dropdown">
-                <a href="{{route('products.index')}}" class="btn btn-outline-success">List Produk</a>
+                <a href="{{route('document.show', $product_id)}}" class="btn btn-outline-success">List Document Produk</a>
             </div>
         </div>
     </div>
 </div>
 <div class="main-card mb-3 card">
     <div class="card-body">
-        <h5 class="card-title">Form Produk</h5>
+        <h5 class="card-title">Form Document Produk</h5>
         <form class="needs-validation" novalidate action="{{$action}}" method="POST">
             @csrf
+            <input type="hidden" name="product_id" value="{{$product_id}}">
             @if ($id)
                 @method('PUT')
                 <input type="hidden" name="id" value="{{$id}}">
             @endif
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="exampleCustomSelect" class="">Kategori Produk</label>
-                    <select type="select" id="exampleCustomSelect" name="category_id" class="custom-select">
-                        @forelse ($itemCategory as $item)
-                            @if ($item->id == $categoryId)
-                                <option value="{{$item->id}}" selected>{{$item->name}}</option>
-                            @else
-                                <option value="{{$item->id}}">{{$item->name}}</option>
-                            @endif
-                        @empty
-                            <option aria-readonly="true">Kategory Kosong</option>
-                        @endforelse
-                    </select>
-                </div>
-            </div>
-            <div class="form-row">
-                <div class="col-md-12 mb-3">
-                    <label for="validationCustom01">Nama Produk</label>
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom01" placeholder="Nama.." value="{{$name}}" required>
+                    <label for="validationCustom01">Nama Document</label>
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="validationCustom01" placeholder="Nama File Document" value="{{$name}}">
                     @error('name') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
@@ -77,10 +64,10 @@
                 </div>
             </div>
             <div class="form-row">
-                <div class="col-md-12 mb-3">
-                    <label for="description">Deskripsi </label>
-                    <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" required >{{$deskripsi}}</textarea>
-                    @error('description') <div class="text-muted">{{$message}}</div> @enderror
+                <div class="col-md-4 mb-3">
+                    <label for="validationCustom01">Link Document</label>
+                    <input type="text" name="document_link" class="form-control @error('document_link') is-invalid @enderror" id="validationCustom01" placeholder="Link File Document" value="{{$document_link}}">
+                    @error('document_link') <div class="text-muted">{{$message}}</div> @enderror
                     <div class="valid-feedback">
                         Looks good!
                     </div>
@@ -88,16 +75,20 @@
             </div>
             <div class="form-row">
                 <div class="col-md-4 mb-3">
-                    <label for="price">Harga Produk</label>
-                    <input type="number" name="price"class="form-control @error('price') is-invalid @enderror" id="price" placeholder="Harga.." value="{{$price}}" required>
-                    @error('price') <div class="text-muted">{{$message}}</div> @enderror
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
+                    <label for="exampleCustomSelect" class="">Type File</label>
+                    <select type="select" id="exampleCustomSelect" name="type" class="custom-select">
+                        @foreach ($itemType as $tipe)
+                            @if ($tipe == $typeFile)
+                                <option class="text-capitalize" value="{{$tipe}}" selected>{{$tipe}}</option>
+                            @else
+                                <option class="text-capitalize" value="{{$tipe}}">{{$tipe}}</option>
+                            @endif
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="form-group">
-                <label for="">Status</label>
+                <label for="status">Status</label>
                 <div class="switch has-switch">
                     <div class="switch-animate switch-on @error('status') is-invalid @enderror" onclick="gantiNilai('status')">
                         @if ($id)
@@ -113,7 +104,7 @@
                     </div>
                 </div>
             </div>
-            <button class="btn btn-primary" type="submit">{{$button}} </button>
+            <button class="btn btn-primary" type="submit">{{$button}} Document</button>
         </form>
 
         <script>
@@ -134,7 +125,7 @@
                             form.classList.add('was-validated');
                         }, false);
                     });
-                }, false);
+                }, false);~
             })();
         </script>
     </div>

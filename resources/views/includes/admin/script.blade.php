@@ -1,9 +1,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="{{asset('assets_admin/scripts/main-login.js')}}"></script>
 <script>
-    function changeStatus() {
-        let status = document.getElementById("status");
-        let val = status.value;
+    function gantiNilai(tagId) {
+        let target = document.getElementById(tagId);
+        let val = target.value;
 
         if (val == 1) {
             val = 0;
@@ -12,7 +12,7 @@
         }
 
         console.log(val);
-        status.value = val;
+        target.value = val;
     }
 </script>
 {{-- ajax secara otomatis --}}

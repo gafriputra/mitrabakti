@@ -4,6 +4,9 @@ namespace App\Model\Product;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Model\Product\Category;
+use App\Model\Product\ProductGallery;
+use App\Model\Product\ProductDocument;
 
 
 class Product extends Model
@@ -24,12 +27,18 @@ class Product extends Model
     {
         // produk galeri ini milik dari produk
         // (model::class, 'foreignkey','primary')
-        return $this->belongsTo(Product::class, 'category_id', 'id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     // bikin relasi ke gallery
     public function productGalleries()
     {
-        // return $this->hasMany(ProductGallery::class, 'product_id');
+        return $this->hasMany(ProductGallery::class, 'product_id', 'id');
+    }
+
+    // bikin relasi ke gDocumentallery
+    public function productDocuments()
+    {
+        return $this->hasMany(ProductDocument::class, 'product_id', 'id');
     }
 }

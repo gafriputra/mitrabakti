@@ -53,17 +53,12 @@ Route::prefix('admin')
         // store
         Route::resource('product-categories', 'Store\Product\ProductCategoriesController');
         Route::resource('products', 'Store\Product\ProductsController');
+        Route::resource('gallery', 'Store\Product\GalleriesController');
+        Route::resource('document', 'Store\Product\DocumentsController');
         // company profile
         Route::resource('banners', 'CompanyProfile\BannersController');
         Route::resource('setting', 'CompanyProfile\WebSettingController');
         Route::resource('services', 'CompanyProfile\ServicesController');
-
-        Route::get('/gallery', function () {
-            return view('pages.admin.product.gallery');
-        })->name('gallery');
-        Route::get('/form-gallery', function () {
-            return view('pages.admin.product.form-gallery');
-        })->name('form-gallery');
 
 
 
