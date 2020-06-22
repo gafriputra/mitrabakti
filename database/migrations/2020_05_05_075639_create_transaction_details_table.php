@@ -18,8 +18,6 @@ class CreateTransactionDetailsTable extends Migration
             $table->integer('transaction_id');
             $table->integer('product_id');
             $table->integer('quantity');
-            $table->float('tax');
-            $table->float('transaction_total');
             $table->softDeletes();
             $table->timestamps();
         });

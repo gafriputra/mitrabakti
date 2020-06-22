@@ -55,6 +55,8 @@ Route::prefix('admin')
         Route::resource('products', 'Store\Product\ProductsController');
         Route::resource('gallery', 'Store\Product\GalleriesController');
         Route::resource('document', 'Store\Product\DocumentsController');
+        Route::resource('transaction', 'Store\TransactionsController');
+        Route::get('transactionStatus', 'Store\TransactionsController@setStatus')->name('transactionStatus');
         // company profile
         Route::resource('banners', 'CompanyProfile\BannersController');
         Route::resource('setting', 'CompanyProfile\WebSettingController');

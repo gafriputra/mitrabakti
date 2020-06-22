@@ -2,20 +2,20 @@
     <div class="container">
         <div class="row no-gutters d-flex align-items-center align-items-stretch">
             <div class="col-md-4 d-flex align-items-center py-4">
-                <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>Bee.</a>
+                <a class="navbar-brand" href="index.html"><span class="flaticon-bee mr-1"></span>Mitrabakti</a>
             </div>
             <div class="col-lg-8 d-block">
                 <div class="row d-flex">
                     <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
                         <div class="icon d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
                         <div class="text d-flex align-items-center">
-                            <span>youremail@email.com</span>
+                            <span>gafri.putra@email.com</span>
                         </div>
                     </div>
                     <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
                         <div class="icon d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
                         <div class="text d-flex align-items-center">
-                            <span>Call Us: + 1235 2355 98</span>
+                            <span>Call Us: + 62 838 3011 6257</span>
                         </div>
                     </div>
                     <div class="col-md topper d-flex align-items-center align-items-stretch">

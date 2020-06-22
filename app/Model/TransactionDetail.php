@@ -5,14 +5,15 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use App\Model\Transaction;
+use App\Model\Product\Product;
 
 class TransactionDetail extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'product_id', 'transaction_id'
+        'product_id', 'transaction_id', 'quantity'
     ];
 
     protected $hidden = [];

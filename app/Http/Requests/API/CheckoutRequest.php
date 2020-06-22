@@ -30,9 +30,10 @@ class CheckoutRequest extends FormRequest
             'phone' => 'required|max:255',
             'address' => 'required',
             'transaction_total' => 'required|integer',
+            'shipping' => 'required|integer',
             'transaction_status' => 'nullable|string|in:PENDING,SUCCESS,FAILED',
             'transaction_details' => 'required|array', //harus array
-            'transaction_details.*' => 'integer|exists:products,id', //barang harus ada didatabase
+            // 'transaction_details.*' => 'integer|exists:products,id', //barang harus ada didatabase
 
         ];
     }

@@ -4,9 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\CheckoutRequest;
-
 // ambil model
-use App\Model\Product\Product;
+// use App\Model\Product\Product;
 use App\Model\Transaction;
 use App\Model\TransactionDetail;
 
@@ -21,10 +20,11 @@ class CheckoutController extends Controller
 
         $transaction = Transaction::create($data);
 
-        foreach ($request->transaction_details as $product_id) {
+        foreach ($request->transaction_details as $product) {
             $details[] = new TransactionDetail([
                 'transaction_id' => $transaction->id,
-                'product_id' => $product_id,
+                'product_id' => $product[0],
+                'quantity' => $product[1]
             ]);
             // mengurangi jumlah produk -1
             // Product::find($product_id)->decrement('quantity');
@@ -32,6 +32,6 @@ class CheckoutController extends Controller
         // nyimpan relasinya, lalu save langsung banyak
         $transaction->details()->saveMany($details);
 
-        return ResponseFormatter::success($transaction);
+        return ResponseFormatter::success($transaction, $data['uuid']);
     }
 }

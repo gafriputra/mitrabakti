@@ -39,6 +39,8 @@
         </div>
     </div>
 {{-- <script type="text/javascript" src="{{asset('assets_admin/scripts/main.js')}}"></script> --}}
-@include('includes.admin.script')
+    @stack('before-script')
+    @include('includes.admin.script')
+    @stack('after-script')
 </body>
 </html>
