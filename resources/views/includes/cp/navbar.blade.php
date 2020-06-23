@@ -48,6 +48,7 @@
             <li class="nav-item {{ Route::currentRouteNamed('Projects') ? 'active' : '' }}"><a href="{{route('Projects')}}" class="nav-link">Project</a></li>
             <li class="nav-item {{ Route::currentRouteNamed('Blog') ||Route::currentRouteNamed('BlogDetail') ? 'active' : '' }}"><a href="{{route('Blog')}}" class="nav-link">Blog</a></li>
           <li class="nav-item {{ Route::currentRouteNamed('Contact') ? 'active' : '' }}"><a href="{{route('Contact')}}" class="nav-link">Contact</a></li>
+          <li class="nav-item "><a href="{{url('/invoice')}}" class="nav-link">Invoice</a></li>
         </ul>
       </div>
     </div>

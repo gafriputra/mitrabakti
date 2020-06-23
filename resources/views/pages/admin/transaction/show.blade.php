@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-striped">
     <tr>
         <th>Nama</th>
         <td>{{$item->name}}</td>
@@ -17,11 +17,11 @@
     </tr>
     <tr>
         <th>Ongkos Kirim</th>
-        <td>{{$item->shipping}}</td>
+        <td>Rp. {{number_format($item->shipping, 0, ',', '.')}}</td>
     </tr>
     <tr>
         <th>Total Transaksi (+ tax 10 %)</th>
-        <td>{{$item->transaction_total}}</td>
+        <td>Rp. {{number_format($item->transaction_total, 0, ',', '.')}}</td>
     </tr>
     <tr>
         <th>Status Transaksi</th>
@@ -50,24 +50,24 @@
                     <tr>
                         <td>{{$detail->product->name}} (x{{$quantity}})</td>
                         <td>{{$detail->product->category->name}}</td>
-                        <td>Rp. {{$total}}</td>
+                        <td>Rp. {{number_format($total, 0, ',', '.')}}</td>
                     </tr>
                 @endforeach
                 <tr>
                     <td colspan="2" class="text-right"><b>Total :</b></td>
-                    <td>Rp. {{$totalHarga}}</td>
+                    <td>Rp. {{number_format($totalHarga, 0, ',', '.')}}</td>
                 </tr>
             </table>
         </td>
     </tr>
 </table>
-<div class="row">
-    {{-- <div class="col-4">
-        <a href="{{route('transaction.status',$item->id)}}?status=SUCCESS" class="btn btn-warning btn-block">
-            <i class="fa fa-check" aria-hidden="true"></i> Set Sukses
+<div class="row justify-content-end">
+     <div class="col-4">
+        <a href="{{route('print',$item->id)}}" class="btn btn-warning btn-block" target="_blank">
+            <i class="fa fa-check" aria-hidden="true"></i> Print
         </a>
     </div>
-    <div class="col-4">
+    {{--<div class="col-4">
         <a href="{{route('transaction.status',$item->id)}}?status=FAILED" class="btn btn-danger btn-block">
             <i class="fa fa-times" aria-hidden="true"></i> Set Gagal
         </a>

@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +43,9 @@ Route::get('blog/{slug}', function ($slug) {
     return view('pages.cp.blog-detail');
 })->name('BlogDetail');
 
+Route::resource('/invoice', 'InvoiceController');
+Route::get('/kirim-invoice', 'InvoiceController@tampil')->name('kirim-invoice');
+
 Route::prefix('admin')
     ->namespace('Admin')
     ->middleware(['auth', 'admin', 'verified']) // nambahin satpamnya dr kernel
@@ -73,18 +77,5 @@ Route::prefix('admin')
     });
 
 
-
-
+Route::get('/pdf/{id}', 'PdfController@print')->name('print');
 Auth::routes(['verify' => true]);
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

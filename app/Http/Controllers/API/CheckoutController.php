@@ -16,7 +16,7 @@ class CheckoutController extends Controller
         // dd($request->body);
         // masukkan semua dari transaction_details
         $data = $request->except('transaction_details');
-        $data['uuid'] = 'TRX' . mt_rand(10000, 99999) . mt_rand(100, 999);
+        $data['uuid'] = 'TRX-' . mt_rand(10000, 99999) . mt_rand(100, 999);
 
         $transaction = Transaction::create($data);
 
@@ -32,6 +32,6 @@ class CheckoutController extends Controller
         // nyimpan relasinya, lalu save langsung banyak
         $transaction->details()->saveMany($details);
 
-        return ResponseFormatter::success($transaction, $data['uuid']);
+        return ResponseFormatter::success($transaction);
     }
 }
