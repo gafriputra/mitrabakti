@@ -44,7 +44,7 @@
                             <tr>
                                 <th scope="row">{{$i}}</th>
                                 <td>
-                                    <img src="{{url('storage/'.$item->image)}}" alt="{{$product->name}}">
+                                    <img src="{{$item->image}}" alt="{{$product->name}}">
                                 </td>
                                 <td>
                                     @if ($item->is_default == 1)

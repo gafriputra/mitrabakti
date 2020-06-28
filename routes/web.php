@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::get('/', function () {
     return view('pages.cp.home');
 })
@@ -79,3 +81,7 @@ Route::prefix('admin')
 
 Route::get('/pdf/{id}', 'PdfController@print')->name('print');
 Auth::routes(['verify' => true]);
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
+});
