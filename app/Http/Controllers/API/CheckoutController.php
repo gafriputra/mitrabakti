@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
+use Mail;
+use App\Mail\TransactionSuccess;
+
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\API\CheckoutRequest;
 // ambil model
@@ -31,6 +35,13 @@ class CheckoutController extends Controller
         }
         // nyimpan relasinya, lalu save langsung banyak
         $transaction->details()->saveMany($details);
+
+
+        $transaction = Transaction::with('details.product.productGalleries')->where('uuid', $data['uuid'])->first();
+        // Email
+        Mail::to($transaction->email)->send(
+            new TransactionSuccess($transaction)
+        );
 
         return ResponseFormatter::success($transaction);
     }

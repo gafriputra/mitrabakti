@@ -105,9 +105,6 @@ class GalleriesController extends Controller
                 'assets/image/product', 'public'
             );
 
-            // hapus file
-            $gambar = ProductGallery::where('id',$id)->first();
-            File::delete('storage/'.$gambar->image);
         }
 
         if (!isset($data['is_default'])) {
